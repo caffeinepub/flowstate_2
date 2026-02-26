@@ -1,0 +1,22 @@
+{
+  "backend/main.mo": "Motoko actor defining Task and PomodoroSession types with CRUD operations for tasks (create, read, update, delete, status change) and session management (start, complete, query stats).",
+  "feature_evidence.json": "Feature evidence report mapping implemented features (Kanban board, Pomodoro timer, dark theme, static assets) to their source files, components, and test IDs with confidence ratings.",
+  "frontend-file-summaries.txt": "JSON map of frontend source file paths to one-line descriptions summarizing each file's role in the app.",
+  "frontend/index.css": "Tailwind base stylesheet defining OKLCH CSS custom properties for light and dark color themes including backgrounds, foregrounds, borders, and sidebar tokens.",
+  "frontend/index.html": "Minimal HTML entry point titled 'FlowState' that mounts the React app at the #root div via main.tsx.",
+  "frontend/src/App.tsx": "Root React component rendering a dark-themed layout with a fixed Sidebar and a main content area displaying the KanbanBoard over a tiled background pattern.",
+  "frontend/src/components/AddTaskModal.tsx": "Dialog modal form component for creating new tasks with title, description, priority select, and due date fields, wired to the createTask mutation.",
+  "frontend/src/components/KanbanBoard.tsx": "Three-column Kanban board component with drag-and-drop task status updates, a progress bar, loading skeletons, and an Add Task button that opens the AddTaskModal.",
+  "frontend/src/components/PomodoroTimer.tsx": "React component rendering a Pomodoro timer with circular SVG progress indicator, mode tabs (focus/short break/long break), play/pause/reset controls, and a session completion prompt.",
+  "frontend/src/components/SessionStats.tsx": "Displays today's completed Pomodoro session count and total focus minutes fetched via a query hook, with loading skeletons.",
+  "frontend/src/components/Sidebar.tsx": "Fixed sidebar layout combining the PomodoroTimer and SessionStats components, invalidating the session count query on session completion.",
+  "frontend/src/components/TaskCard.tsx": "Draggable task card component showing title, description, priority badge, and due date, with a delete action wired to a mutation hook.",
+  "frontend/src/hooks/useActor.ts": "Custom hook that creates and caches an ICP backend actor (authenticated or anonymous) using React Query, invalidating dependent queries when the identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and provider, managing AuthClient lifecycle, login/logout, and identity persistence across page reloads.",
+  "frontend/src/hooks/usePomodoro.ts": "Custom hook managing Pomodoro timer state (countdown, mode switching, start/pause/reset) and integrating with backend session start/complete mutations.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for task CRUD operations (get, create, update, delete, update status) and session operations (get count, start, complete) using a backend actor.",
+  "frontend/src/index.css": "Global CSS file that imports Google Fonts, sets up Tailwind directives, and defines dark-mode OKLCH CSS custom properties for the app's color system plus utility classes for scrollbars and drag interactions.",
+  "frontend/src/main.tsx": "React app entry point that mounts the root component wrapped with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the theme with custom OKLCH-based color palettes (amber, surface, semantic tokens), typography/container-query/animate plugins, and custom shadows and border radii.",
+  "project_state.json": "Project state manifest tracking schema version, existing implemented features (Kanban board, Pomodoro timer, dark theme, static assets), and pending new feature requests for backend actor and session storage."
+}

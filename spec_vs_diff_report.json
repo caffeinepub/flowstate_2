@@ -1,0 +1,74 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-26T03:00:32.388Z",
+  "summary": "The implementation covers the vast majority of requirements. Backend actor with task CRUD and Pomodoro session management is present. Frontend Kanban board, Pomodoro timer widget, dark theme, sidebar layout, and asset references are all implemented. A few gaps exist: the backend's getTasks is exposed as getTasksByCreatedAt rather than getTasks; getSessionStats returning total sessions today and total focus minutes is replaced by a simpler getSessionCount; and data persistence across canister upgrades via stable variables is not confirmed in the truncated backend.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Expose a getTasks operation named getTasks (tasks retrieved as a list sorted by creation date).",
+      "reason": "The backend exposes getTasksByCreatedAt instead of getTasks. The frontend hooks call getTasksByCreatedAt, matching the actual implementation but diverging from the specified API name.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Data persists across canister upgrades via stable variables or stable storage.",
+      "reason": "The backend uses Map.empty() for tasks and sessions. The truncated file does not show stable variable declarations or preupgrade/postupgrade hooks required for persistence across upgrades on ICP.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Expose getSessionStats returning total sessions today and total focus minutes as structured data with today-filtering.",
+      "reason": "The frontend only calls getSessionCount and computes focus minutes client-side as count * 25. The spec requires a getSessionStats function with today-scoped aggregation logic in the backend.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/SessionStats.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "getTasksByPriority backend query function exposed as a separate endpoint.",
+      "reason": "The spec only requires getTasks, createTask, updateTask, deleteTask, and updateTaskStatus. A getTasksByPriority function was added but not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "getTaskById backend query function.",
+      "reason": "The spec lists only createTask, getTasks, updateTask, deleteTask, and updateTaskStatus as required CRUD operations. getTaskById was not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AddTaskModal.tsx",
+    "frontend/src/components/KanbanBoard.tsx",
+    "frontend/src/components/PomodoroTimer.tsx",
+    "frontend/src/components/SessionStats.tsx",
+    "frontend/src/components/Sidebar.tsx",
+    "frontend/src/components/TaskCard.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/usePomodoro.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

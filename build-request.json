@@ -1,0 +1,143 @@
+{
+  "kind": "build_request",
+  "title": "Surprise Productivity App — Focus & Task Manager",
+  "projectName": "FlowState",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend actor that stores tasks with fields: id, title, description, status (todo/in-progress/done), priority (low/medium/high), createdAt timestamp, and dueDate (optional). Expose CRUD operations: createTask, getTasks, updateTask, deleteTask, and updateTaskStatus.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "surprise me with a productive app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Tasks can be created with all required fields",
+        "Tasks can be retrieved as a list sorted by creation date",
+        "Task status can be updated independently",
+        "Tasks can be deleted by ID",
+        "Data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a Pomodoro focus timer feature in the backend: store user focus sessions with duration (25 min default), short break (5 min), long break (15 min), and session count. Expose startSession, completeSession, and getSessionStats (total sessions today, total focus minutes).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "surprise me with a productive app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Focus sessions can be started and completed",
+        "Session stats return correct totals for today",
+        "Session history is persisted"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a Kanban-style task board as the main view with three columns: To Do, In Progress, and Done. Each task card must display its title, priority badge (color-coded), and due date if set. Allow dragging cards between columns to update status, and provide a button to add new tasks via a modal form.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "surprise me with a productive app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three columns render with correct task groupings",
+        "Task cards show title, priority badge, and due date",
+        "Dragging a card updates its status in the backend",
+        "Add Task modal has fields for title, description, priority, and due date",
+        "New tasks appear immediately after creation"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build an interactive Pomodoro timer widget displayed in the sidebar or top section. It should show a circular countdown timer that counts down from 25 minutes, with buttons to start, pause, and reset. When a session ends, prompt the user to log a completed session. Display today's total focus sessions and total minutes focused.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "surprise me with a productive app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Circular countdown timer correctly counts down from 25:00",
+        "Start, pause, and reset controls work correctly",
+        "Session completion prompt appears at 00:00",
+        "Stats for today (sessions and minutes) are fetched and displayed",
+        "Timer switches between focus and break modes"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply a sleek dark-mode productivity theme with deep charcoal/slate backgrounds, crisp white text, and vibrant amber/orange accent colors for highlights, badges, and interactive elements. Use a clean sans-serif typeface, generous whitespace, and subtle card shadows to create a focused, distraction-free aesthetic. The layout should feature a fixed sidebar with the timer and stats, and the main area for the Kanban board.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "surprise me with a productive app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dark charcoal/slate background is applied globally",
+        "Amber/orange accents are used consistently on interactive and highlighted elements",
+        "Sidebar is fixed and contains the Pomodoro timer and daily stats",
+        "Main content area displays the Kanban board",
+        "Design feels cohesive and polished across all components"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Render the generated app logo and a decorative background pattern as static assets from frontend/public/assets/generated. Use the logo in the sidebar header and the background pattern subtly behind the main content area.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "surprise me with a productive app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Logo appears in the sidebar header",
+        "Background pattern is applied subtly to the main content area",
+        "Assets load from /assets/generated/"
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must live in a single Motoko actor in backend/main.mo",
+    "Do not use any external databases or third-party services",
+    "Do not edit files under frontend/src/hooks/ or frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "User authentication or Internet Identity integration",
+    "Real-time collaboration or WebSocket updates",
+    "Mobile-specific layouts",
+    "Email or push notifications",
+    "Calendar integrations"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimalist flame-inside-a-circle logo mark with amber and orange gradient on a dark background (flowstate-logo.dim_128x128.png)",
+      "Subtle dark geometric dot-grid or hex-grid repeating tile pattern in deep charcoal tones (bg-pattern.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

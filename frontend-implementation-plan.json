@@ -1,0 +1,132 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "FlowState — Focus & Task Manager Frontend",
+  "requirements": [
+    {
+      "id": "REQ-3",
+      "summary": "Build a Kanban-style task board with three columns (To Do, In Progress, Done), draggable task cards showing title/priority/due date, and an add task modal",
+      "acceptanceCriteria": [
+        "Three columns render with correct task groupings",
+        "Task cards show title, priority badge, and due date",
+        "Dragging a card updates its status in the backend",
+        "Add Task modal has fields for title, description, priority, and due date",
+        "New tasks appear immediately after creation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/KanbanBoard.tsx",
+          "operation": "create",
+          "description": "Create the main Kanban board component with three columns (To Do, In Progress, Done). Fetch tasks from backend using getTasksByCreatedAt(), group by status, and implement drag-and-drop to update task status via updateTaskStatus(). Include an 'Add Task' button that opens the AddTaskModal component."
+        },
+        {
+          "path": "frontend/src/components/TaskCard.tsx",
+          "operation": "create",
+          "description": "Create a task card component that displays task title, a color-coded priority badge (low/medium/high using amber/orange for high, slate tones for medium/low), and formatted due date if present. Make the card draggable using HTML5 drag API."
+        },
+        {
+          "path": "frontend/src/components/AddTaskModal.tsx",
+          "operation": "create",
+          "description": "Create a modal dialog component with form fields for title (required), description (textarea), priority (dropdown: low/medium/high), and optional due date (date picker). On submit, call backend createTask() and close modal. Use shadcn/ui Dialog, Input, Textarea, and Select components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useTasks.ts",
+          "operation": "create",
+          "description": "Create a custom hook that provides task CRUD operations: fetchTasks (calls getTasksByCreatedAt), createTask, updateTaskStatus, and deleteTask. Manage loading/error states and return task list with refetch capability."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render KanbanBoard component in the main content area (right side of the layout). Ensure it takes up the full available space next to the fixed sidebar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build an interactive Pomodoro timer widget with circular countdown, start/pause/reset controls, session completion prompt, and daily stats display",
+      "acceptanceCriteria": [
+        "Circular countdown timer correctly counts down from 25:00",
+        "Start, pause, and reset controls work correctly",
+        "Session completion prompt appears at 00:00",
+        "Stats for today (sessions and minutes) are fetched and displayed",
+        "Timer switches between focus and break modes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PomodoroTimer.tsx",
+          "operation": "create",
+          "description": "Create the Pomodoro timer widget with a circular SVG countdown display showing minutes:seconds. Implement start/pause/reset controls using shadcn/ui Button components. When timer reaches 00:00, call backend startSession() at start and completeSession() at completion, then show a prompt to log the session. Support focus (25 min), short break (5 min), and long break (15 min) modes. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SessionStats.tsx",
+          "operation": "create",
+          "description": "Create a component that displays today's focus statistics by calling backend getSessionCount(). Show total sessions completed today and total focus minutes. Style with amber/orange accents for numbers."
+        },
+        {
+          "path": "frontend/src/hooks/usePomodoro.ts",
+          "operation": "create",
+          "description": "Create a custom hook that manages Pomodoro timer state (timeRemaining, isRunning, mode), handles countdown logic, and provides methods to start, pause, reset, and complete sessions. Interact with backend via startSession() and completeSession()."
+        },
+        {
+          "path": "frontend/src/components/Sidebar.tsx",
+          "operation": "create",
+          "description": "Create a fixed sidebar component that contains the app logo at the top, PomodoroTimer widget in the middle section, and SessionStats at the bottom. Style with dark charcoal background and ensure it stays fixed while main content scrolls."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Sidebar component as a fixed left panel. Structure the layout with Sidebar on the left and main content area on the right for the Kanban board."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply a sleek dark-mode productivity theme with charcoal backgrounds, white text, amber/orange accents, and a fixed sidebar layout",
+      "acceptanceCriteria": [
+        "Dark charcoal/slate background is applied globally",
+        "Amber/orange accents are used consistently on interactive and highlighted elements",
+        "Sidebar is fixed and contains the Pomodoro timer and daily stats",
+        "Main content area displays the Kanban board",
+        "Design feels cohesive and polished across all components"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to apply dark-mode theme with deep charcoal/slate background (#1a1d23 or similar), crisp white text (#ffffff), and define CSS custom properties for amber/orange accent colors (#f59e0b, #fb923c). Set body font to a clean sans-serif (e.g., 'Inter', sans-serif). Apply generous whitespace and ensure all base elements use the dark theme."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors for the dark productivity theme: define charcoal/slate background shades, amber/orange accent colors (primary, highlight), and configure default text color to white. Add custom spacing and shadow utilities for card depth."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply layout structure with fixed Sidebar on the left and scrollable main content area on the right. Use flexbox or grid to create the two-column layout. Ensure the entire app uses the dark theme background."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Render the generated app logo and decorative background pattern as static assets in the sidebar header and main content area",
+      "acceptanceCriteria": [
+        "Logo appears in the sidebar header",
+        "Background pattern is applied subtly to the main content area",
+        "Assets load from /assets/generated/"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Sidebar.tsx",
+          "operation": "modify",
+          "description": "Add the app logo at the top of the Sidebar component by importing and rendering frontend/public/assets/generated/flowstate-logo.dim_128x128.png as an img element. Style it with appropriate sizing (e.g., 48px or 64px height) and center it horizontally in the header section."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply the decorative background pattern to the main content area by setting frontend/public/assets/generated/bg-pattern.dim_512x512.png as a repeating background image with low opacity (0.05-0.1) to maintain readability. Use CSS background-image with repeat and appropriate blend mode."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A productivity app chosen by the AI as a surprise for the user.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimalist flame-inside-a-circle logo mark with amber and orange gradient on a dark background (flowstate-logo.dim_128x128.png)\n- Subtle dark geometric dot-grid or hex-grid repeating tile pattern in deep charcoal tones (bg-pattern.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-kanban-style-task-board-as-the-main-view-with-three-columns-to-do-in-progress-and-done-each-task-card-must-display-its-title-priority-badge-color-coded-and-due-date-if-set-allow-dragging-cards-between-columns-to-update-status-and-provide-a-button-to-add-new-tasks-via-a-modal-form",
+      "title": "Build a Kanban-style task board as the main view with three columns: To Do, In Progress, and Done. Each task card must display its title, priority badge (color-coded), and due date if set. Allow dragging cards between columns to update status, and provide a button to add new tasks via a modal form.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-interactive-pomodoro-timer-widget-displayed-in-the-sidebar-or-top-section-it-should-show-a-circular-countdown-timer-that-counts-down-from-25-minutes-with-buttons-to-start-pause-and-reset-when-a-session-ends-prompt-the-user-to-log-a-completed-session-display-today-s-total-focus-sessions-and-total-minutes-focused",
+      "title": "Build an interactive Pomodoro timer widget displayed in the sidebar or top section. It should show a circular countdown timer that counts down from 25 minutes, with buttons to start, pause, and reset. When a session ends, prompt the user to log a completed session. Display today's total focus sessions and total minutes focused.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-sleek-dark-mode-productivity-theme-with-deep-charcoal-slate-backgrounds-crisp-white-text-and-vibrant-amber-orange-accent-colors-for-highlights-badges-and-interactive-elements-use-a-clean-sans-serif-typeface-generous-whitespace-and-subtle-card-shadows-to-create-a-focused-distraction-free-aesthetic-the-layout-should-feature-a-fixed-sidebar-with-the-timer-and-stats-and-the-main-area-for-the-kanban-board",
+      "title": "Apply a sleek dark-mode productivity theme with deep charcoal/slate backgrounds, crisp white text, and vibrant amber/orange accent colors for highlights, badges, and interactive elements. Use a clean sans-serif typeface, generous whitespace, and subtle card shadows to create a focused, distraction-free aesthetic. The layout should feature a fixed sidebar with the timer and stats, and the main area for the Kanban board.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-generated-app-logo-and-a-decorative-background-pattern-as-static-assets-from-frontend-public-assets-generated-use-the-logo-in-the-sidebar-header-and-the-background-pattern-subtly-behind-the-main-content-area",
+      "title": "Render the generated app logo and a decorative background pattern as static assets from frontend/public/assets/generated. Use the logo in the sidebar header and the background pattern subtly behind the main content area.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a backend actor that stores tasks with fields: id, title, description, status (todo/in-progress/done), priority (low/medium/high), createdAt timestamp, and dueDate (optional). Expose CRUD operations: createTask, getTasks, updateTask, deleteTask, and updateTaskStatus.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a Pomodoro focus timer feature in the backend: store user focus sessions with duration (25 min default), short break (5 min), long break (15 min), and session count. Expose startSession, completeSession, and getSessionStats (total sessions today, total focus minutes).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "FlowState",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

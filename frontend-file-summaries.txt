@@ -1,0 +1,13 @@
+{
+  "frontend/src/index.css": "Global styles with dark-mode OKLCH color system using deep charcoal/slate backgrounds, amber/orange accents, Inter + Space Grotesk fonts, and custom scrollbar and drag utilities.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Space Grotesk/Inter fonts, amber accent palette, surface shades, card shadows, glow effects, and slide-in animation.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations: task CRUD (getTasks, createTask, updateTaskStatus, deleteTask, updateTask) and Pomodoro session management (getSessionCount, startSession, completeSession).",
+  "frontend/src/hooks/usePomodoro.ts": "Custom hook managing Pomodoro timer state with countdown logic, mode switching (focus/shortBreak/longBreak), backend session integration, and completion prompts.",
+  "frontend/src/components/PomodoroTimer.tsx": "Circular SVG countdown timer with mode tabs, start/pause/reset controls, completion prompt, and session dot indicators styled with amber accents.",
+  "frontend/src/components/SessionStats.tsx": "Displays today's focus session count and total minutes from backend, with amber-accented stat cards and loading skeletons.",
+  "frontend/src/components/Sidebar.tsx": "Fixed left sidebar with app logo, Pomodoro timer, session stats, and caffeine.ai footer attribution.",
+  "frontend/src/components/TaskCard.tsx": "Draggable task card showing title, description, color-coded priority badge, due date, and delete button with hover interactions.",
+  "frontend/src/components/AddTaskModal.tsx": "Dialog modal form for creating tasks with title, description, priority select, and date picker fields, wired to the backend createTask mutation.",
+  "frontend/src/components/KanbanBoard.tsx": "Three-column Kanban board with drag-and-drop status updates, progress bar, empty states, and Add Task button triggering the modal.",
+  "frontend/src/App.tsx": "Root app component with dark theme, fixed sidebar layout, and main content area with subtle background pattern overlay."
+}

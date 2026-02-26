@@ -1,0 +1,87 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-kanban-style-task-board-as-the-main-view-with-three-columns-to-do-in-progress-and-done-each-task-card-must-display-its-title-priority-badge-color-coded-and-due-date-if-set-allow-dragging-cards-between-columns-to-update-status-and-provide-a-button-to-add-new-tasks-via-a-modal-form",
+      "featureTitle": "Build a Kanban-style task board as the main view with three columns: To Do, In Progress, and Done. Each task card must display its title, priority badge (color-coded), and due date if set. Allow dragging cards between columns to update status, and provide a button to add new tasks via a modal form.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AddTaskModal.tsx",
+        "frontend/src/components/KanbanBoard.tsx",
+        "frontend/src/components/TaskCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-interactive-pomodoro-timer-widget-displayed-in-the-sidebar-or-top-section-it-should-show-a-circular-countdown-timer-that-counts-down-from-25-minutes-with-buttons-to-start-pause-and-reset-when-a-session-ends-prompt-the-user-to-log-a-completed-session-display-today-s-total-focus-sessions-and-total-minutes-focused",
+      "featureTitle": "Build an interactive Pomodoro timer widget displayed in the sidebar or top section. It should show a circular countdown timer that counts down from 25 minutes, with buttons to start, pause, and reset. When a session ends, prompt the user to log a completed session. Display today's total focus sessions and total minutes focused.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PomodoroTimer.tsx",
+        "frontend/src/components/SessionStats.tsx",
+        "frontend/src/components/Sidebar.tsx",
+        "frontend/src/hooks/usePomodoro.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-sleek-dark-mode-productivity-theme-with-deep-charcoal-slate-backgrounds-crisp-white-text-and-vibrant-amber-orange-accent-colors-for-highlights-badges-and-interactive-elements-use-a-clean-sans-serif-typeface-generous-whitespace-and-subtle-card-shadows-to-create-a-focused-distraction-free-aesthetic-the-layout-should-feature-a-fixed-sidebar-with-the-timer-and-stats-and-the-main-area-for-the-kanban-board",
+      "featureTitle": "Apply a sleek dark-mode productivity theme with deep charcoal/slate backgrounds, crisp white text, and vibrant amber/orange accent colors for highlights, badges, and interactive elements. Use a clean sans-serif typeface, generous whitespace, and subtle card shadows to create a focused, distraction-free aesthetic. The layout should feature a fixed sidebar with the timer and stats, and the main area for the Kanban board.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-the-generated-app-logo-and-a-decorative-background-pattern-as-static-assets-from-frontend-public-assets-generated-use-the-logo-in-the-sidebar-header-and-the-background-pattern-subtly-behind-the-main-content-area",
+      "featureTitle": "Render the generated app logo and a decorative background pattern as static assets from frontend/public/assets/generated. Use the logo in the sidebar header and the background pattern subtly behind the main content area.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Sidebar.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
